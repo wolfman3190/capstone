@@ -56,7 +56,7 @@ const SignUpForm = () => {
             <form onSubmit={handleSubmit}>
         
                 <FormInput 
-                label="Display Name" 
+                label="displayName" 
                 type="text" 
                 required onChange={handleChange} 
                 name="displayName" 
@@ -64,27 +64,27 @@ const SignUpForm = () => {
                 />
 
                 <FormInput 
-                label="Email" 
+                label="email" 
                 type="text" 
                 required onChange={handleChange} 
-                name="displayName" 
-                value={displayName}
+                name="email" 
+                value={email}
                 />
 
                 <FormInput 
-                label="Password" 
-                type="text" 
+                label="password" 
+                type="password" 
                 required onChange={handleChange} 
-                name="displayName" 
-                value={displayName}
+                name="password" 
+                value={password}
                 />
 
                 <FormInput 
-                label="Confirm Password" 
-                type="text" 
+                label="confirmPassword" 
+                type="password" 
                 required onChange={handleChange} 
-                name="displayName" 
-                value={displayName}
+                name="confirmPassword" 
+                value={confirmPassword}
                 />
 
                 <Button buttonType='inverted' type="submit">Submit</Button>
