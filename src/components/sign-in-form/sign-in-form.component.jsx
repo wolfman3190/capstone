@@ -5,7 +5,7 @@ import { signInUserWithEmailAndAuth,
     createUserDocumentFromAuth } from '../../utils/firebase.utils';
 import Button from '../button/button.component';
 import './sign-in-form.styles.scss';
-
+import { UserContext } from '../../context/user.context';
 
 const  defaultFormFields = {
     email: '', 
@@ -17,16 +17,18 @@ const SignInForm = () => {
     const [formFields, fieldChange] = useState(defaultFormFields); 
     const {email, password} = formFields
 
+    
+
     const signInWithGoogle = async() =>  {
-        const {user} = await signInWithGooglePopup(); 
+        const {user} = await signInWithGooglePopup();  
         const userDocRef = await createUserDocumentFromAuth(user); 
+    
     };
 
     const resetFields = () => {
         fieldChange(defaultFormFields);
     }
     const handleChange = (event) => {
-        console.log(event)
         const {name, value } = event.target
         fieldChange({...formFields, [name]:value}); 
 
@@ -34,9 +36,11 @@ const SignInForm = () => {
 
     const handleSubmit = async(event) => { 
         event.preventDefault();
+
         try{
-        const response = await signInUserWithEmailAndAuth(email,password);
-        console.log(response); 
+        const { user } = await signInUserWithEmailAndAuth(email,password);
+      
+
         resetFields(); 
         }catch(error) {
             console.log(error.code); 
