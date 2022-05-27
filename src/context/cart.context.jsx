@@ -36,7 +36,6 @@ const addItems = (cartItems,cartItem) => {
 // Used to subtract items from the checkout page 
 const subItems = (cartItems, cartItem) => {
 
-    console.log(cartItem); 
     
     if(cartItem.quantity > 0) {
         return cartItems.map((elem) => elem.id === cartItem.id 
